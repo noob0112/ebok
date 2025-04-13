@@ -18,10 +18,10 @@ const book = {
   <DataView
     :layout="layout"
     :value="products"
-    :totalRecords="100"
+    :total-records="100"
     :paginator="true"
     :rows="12"
-    dataKey="id"
+    data-key="id"
   >
     <template #grid>
       <div class="grid grid-cols-12 gap-2 sm:gap-4 p-2">
@@ -30,7 +30,7 @@ const book = {
           :key="i"
           class="col-span-6 sm:col-span-4 xl:col-span-3 p-2"
         >
-          <BookCard :isLoading="false" :book />
+          <BookCard :is-loading="false" :book />
         </div>
       </div>
     </template>

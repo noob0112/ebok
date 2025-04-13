@@ -8,6 +8,10 @@ import SelectButton from "primevue/selectbutton";
 import Skeleton from "primevue/skeleton";
 import Chip from "primevue/chip";
 import Tooltip from 'primevue/tooltip';
+import Tab from 'primevue/tab';
+import Tabs from 'primevue/tabs';
+import TabPanel from 'primevue/tabpanel';
+import TabList from 'primevue/tablist';
 
 export {
   Button,
@@ -19,5 +23,9 @@ export {
   SelectButton,
   Skeleton,
   Chip,
+  Tab,
+  Tabs,
+  TabPanel,
+  TabList,
   Tooltip,
 };

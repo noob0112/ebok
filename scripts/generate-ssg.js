@@ -3,7 +3,7 @@ import { createServer } from 'vite';
 import fs from 'fs/promises';
 import path from 'path';
 
-import { routes } from './src/router/index.ts';
+import { routes } from '../src/router/index.ts';
 
 const base = process.env.BASE || '/';
 
@@ -14,7 +14,7 @@ const vite = await createServer({
 });
 
 for (const route of routes) {
-  const render = (await vite.ssrLoadModule('/src/entry-server.ts')).render
+  const render = (await vite.ssrLoadModule('/src/entry-server.ts')).render;
 
   const rendered = await render(route.path);
   const templateHtml = await fs.readFile('./dist/client/index.html', 'utf-8');
@@ -32,4 +32,3 @@ for (const route of routes) {
 
 vite.close();
 process.exit(0);
-
