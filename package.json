@@ -1,0 +1,57 @@
+{
+  "name": "ebok",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node server",
+    "type:check": "vue-tsc --noEmit --skipLibCheck",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
+    "lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+    "build": "npm run build:client & npm run build:server & npm run build:ssg",
+    "build:ssg": "env RENDERING_MODE=ssg vite build --outDir dist/ssg && tsx ./scripts/generate-ssg.js",
+    "build:client": "env RENDERING_MODE=csr vite build --outDir dist/client",
+    "build:server": "env RENDERING_MODE=ssr vite build --ssr src/entry-server.ts --outDir dist/server",
+    "preview:ssg": "vite preview --outDir dist/ssg",
+    "preview:client": "vite preview --outDir dist/client",
+    "preview:server": "env NODE_ENV=production node server"
+  },
+  "dependencies": {
+    "@primeuix/themes": "^1.0.0",
+    "@tailwindcss/vite": "^4.0.15",
+    "compression": "^1.8.0",
+    "express": "^5.1.0",
+    "pinia": "^3.0.1",
+    "primevue": "^4.3.2",
+    "sirv": "^3.0.1",
+    "tailwindcss": "^4.0.15",
+    "tailwindcss-primeui": "^0.5.1",
+    "vue": "^3.5.13",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@eslint/css": "^0.6.0",
+    "@eslint/js": "^9.24.0",
+    "@eslint/markdown": "^6.3.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^22.14.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-vue": "^10.0.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.3",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.29.1",
+    "vite": "^6.2.0",
+    "vite-plugin-html": "^3.2.2",
+    "vue-tsc": "^2.2.4"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
